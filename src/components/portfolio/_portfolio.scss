@@ -1,0 +1,51 @@
+@use "../../Sass/utils/" as u;
+
+.portfolio__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  grid-gap: 2.5rem;
+
+  @include u.breakpoints(large) {
+    & {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1.2rem;
+    }
+  }
+
+  @include u.breakpoints(medium) {
+    & {
+      grid-template-columns: 1fr;
+      grid-gap: 1rem;
+    }
+  }
+
+  &__items {
+    background-color: var(--color-bg-variant);
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid transparent;
+
+    &:hover {
+      border-color: var(--color-primary-variant);
+      background-color: transparent;
+    }
+
+    &__image {
+      border-radius: 1rem 1rem 0 0;
+      overflow: hidden;
+    }
+
+    & h3 {
+      margin: 1.2rem 0 2rem;
+      text-align: center;
+    }
+    &__cta {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+}

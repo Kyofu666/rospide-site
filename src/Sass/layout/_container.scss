@@ -1,0 +1,81 @@
+@use "../utils/" as u;
+
+.container {
+  width: u.$container-width-lg;
+  margin: 0 auto;
+}
+
+section {
+  margin-top: u.rem(128);
+}
+
+section > h2,
+section h5 {
+  text-align: center;
+  color: var(--color-light);
+}
+
+section > h2 {
+  color: var(--color-primary);
+  margin-bottom: u.rem(48);
+}
+
+.text-light {
+  color: var(--color-light);
+}
+
+a {
+  color: var(--color-primary);
+  transition: u.$transition;
+
+  &:hover {
+    color: var(--color-white);
+  }
+}
+.btn {
+  width: max-content;
+  display: inline-block;
+  color: var(--color-primary);
+  padding: u.rem(12) u.rem(20);
+  border-radius: u.rem(7);
+  border: 1px solid var(--color-primary);
+  cursor: pointer;
+  transition: u.$transition;
+
+  &:hover {
+    background-color: var(--color-white);
+    color: var(--color-bg);
+    border-color: transparent;
+  }
+
+  &--primary {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+  }
+}
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+// Tablet
+
+@include u.breakpoints(large) {
+  .container {
+    width: u.$container-width-md;
+  }
+  section {
+    margin-top: u.rem(96);
+  }
+}
+
+// Mobile
+@include u.breakpoints(medium) {
+  .container {
+    width: u.$container-width-sm;
+  }
+  section > h2 {
+    margin-bottom: u.rem(32);
+  }
+}

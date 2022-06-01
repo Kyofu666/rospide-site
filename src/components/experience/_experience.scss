@@ -1,0 +1,67 @@
+@use "../../Sass/utils/" as u;
+
+.experience {
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    & > div {
+      background-color: var(--color-bg-variant);
+      padding: 2.4rem 5rem;
+      border-radius: 2rem;
+      border: 1px solid transparent;
+      transition: u.$transition;
+
+      @include u.breakpoints(large) {
+        & {
+          width: 80%;
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+
+      @include u.breakpoints(medium) {
+        & {
+          width: 100%;
+          padding: 2rem 1.5rem;
+          margin: 0 auto;
+        }
+      }
+
+      &:hover {
+        background-color: transparent;
+        border-color: var(--color-primary-variant);
+      }
+
+      & h3 {
+        text-align: center;
+        text-transform: capitalize;
+        margin-bottom: 2rem;
+        color: var(--color-primary);
+      }
+    }
+
+    &__frontent__content {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      justify-items: normal;
+      align-items: center;
+      grid-gap: 2rem;
+
+      @include u.breakpoints(medium) {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      &__details {
+        display: flex;
+        align-self: flex-start;
+        gap: 1rem;
+
+        & .icon {
+          margin-top: u.rem(6);
+          color: var(--color-primary);
+        }
+      }
+    }
+  }
+}

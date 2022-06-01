@@ -1,0 +1,123 @@
+@use "../../Sass/utils/" as u;
+
+.about {
+  &__container {
+    display: grid;
+    grid-template-columns: 35% 50%;
+    grid-gap: 15%;
+
+    @include u.breakpoints(large) {
+      & {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+    }
+  }
+
+  &__me {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: u.rem(32);
+    background: linear-gradient(
+      45deg,
+      transparent,
+      var(--color-primary),
+      transparent
+    );
+    display: grid;
+    place-items: center;
+
+    & img {
+      border-radius: u.rem(32);
+      overflow: hidden;
+      transform: rotate(-10deg);
+      transition: u.$transition;
+
+      &:hover {
+        transform: rotate(0);
+      }
+    }
+
+    @include u.breakpoints(large) {
+      & {
+        width: 50%;
+        margin: 2rem auto 4rem;
+      }
+    }
+
+    @include u.breakpoints(medium) {
+      & {
+        width: 65%;
+        margin: 0 auto 3rem;
+      }
+    }
+  }
+
+  &__content {
+    @include u.breakpoints(medium) {
+      & {
+        text-align: center;
+      }
+    }
+
+    &__cards {
+      display: flex;
+      gap: u.rem(24);
+
+      @include u.breakpoints(medium) {
+        & {
+          justify-content: center;
+        }
+      }
+
+      &__card {
+        background-color: var(--color-bg-variant);
+        border: 1px solid transparent;
+        border-radius: 1rem;
+        padding: u.rem(32);
+        text-align: center;
+        transition: u.$transition;
+
+        &:hover {
+          background: transparent;
+          border-color: var(--color-primary-variant);
+          cursor: default;
+        }
+
+        & h5 {
+          text-transform: capitalize;
+          font-size: u.rem(15.2);
+        }
+        & small {
+          font-size: u.rem(11.2);
+          font-weight: 300;
+          color: var(--color-light);
+          text-transform: capitalize;
+        }
+
+        &__icon {
+          color: var(--color-primary);
+          font-size: u.rem(22.4);
+          margin-bottom: 1rem;
+        }
+      }
+    }
+
+    & p {
+      margin: u.rem(32) 0 u.rem(41.6);
+      color: var(--color-light);
+
+      @include u.breakpoints(large) {
+        & {
+          margin: 1rem 0 1.5rem;
+        }
+      }
+
+      @include u.breakpoints(medium) {
+        & {
+          margin: 1.5rem 0;
+        }
+      }
+    }
+  }
+}

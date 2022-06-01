@@ -1,0 +1,81 @@
+@use "../../Sass/utils/" as u;
+.header {
+  height: 100vh;
+  padding-top: u.rem(112);
+  overflow: hidden;
+
+  &__container {
+    text-align: center;
+    height: 100%;
+    position: relative;
+  }
+
+  &__cta {
+    margin-top: u.rem(40);
+    display: flex;
+    gap: u.rem(20);
+    justify-content: center;
+  }
+
+  &__socials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: u.rem(13);
+    position: absolute;
+    left: 0;
+    bottom: u.rem(48);
+
+    &::after {
+      content: "";
+      width: u.rem(1);
+      height: u.rem(32);
+      background-color: var(--color-primary);
+    }
+  }
+
+  &__image {
+    background: linear-gradient(var(--color-primary), transparent);
+    width: u.rem(330);
+    height: u.rem(512);
+    position: absolute;
+    left: calc(50% - u.rem(165));
+    margin-top: u.rem(64);
+    border-radius: u.rem(192) u.rem(192) 0 0;
+    overflow: hidden;
+    padding: u.rem(80) u.rem(24) u.rem(24) u.rem(24);
+
+    & img {
+      position: absolute;
+      width: 300px;
+      left: calc(50% - u.rem(150));
+      bottom: 5rem;
+    }
+  }
+
+  &__scrollDown {
+    position: absolute;
+    right: u.rem(-37);
+    bottom: u.rem(80);
+    font-weight: 300;
+    font-size: u.rem(15);
+    transform: rotate(90deg);
+  }
+
+  @include u.breakpoints(large) {
+    & {
+      height: 68vh;
+    }
+  }
+
+  @include u.breakpoints(medium) {
+    & {
+      height: 100vh;
+    }
+
+    &__socials,
+    &__scrollDown {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@use "../../Sass/utils/" as u;
+
+nav {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: max-content;
+  display: block;
+  padding: u.rem(11.2) u.rem(27.2);
+  z-index: 2;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: u.rem(32);
+  display: flex;
+  gap: u.rem(12);
+  border-radius: u.rem(48);
+  backdrop-filter: blur(15px);
+
+  & a {
+    background: transparent;
+    color: var(--color-light);
+    padding: u.rem(16);
+    border-radius: 50%;
+    display: flex;
+    font-size: u.rem(18);
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    &.active {
+      background-color: var(--color-primary);
+      color: var(--color-bg);
+    }
+  }
+}
